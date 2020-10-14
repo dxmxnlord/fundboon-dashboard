@@ -42,12 +42,12 @@ class NavBar extends Component {
     }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = ({admin}) => {
     return {
-        rtlLayout: state.rtlLayout,
-        headerBackColor: state.headerBackColor,
-        headerFixedLayout: state.headerFixedLayout,
-        collapseMenu: state.collapseMenu
+        rtlLayout: admin.rtlLayout,
+        headerBackColor: admin.headerBackColor,
+        headerFixedLayout: admin.headerFixedLayout,
+        collapseMenu: admin.collapseMenu
     }
 };
 

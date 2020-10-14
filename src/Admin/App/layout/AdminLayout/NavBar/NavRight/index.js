@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import {Dropdown} from 'react-bootstrap';
+import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 
 import ChatList from './ChatList';
 import Aux from "../../../../../hoc/_Aux";
@@ -10,11 +12,16 @@ import Avatar2 from '../../../../../assets/images/user/avatar-2.jpg';
 import Avatar3 from '../../../../../assets/images/user/avatar-3.jpg';
 
 class NavRight extends Component {
-    state = {
-        listOpen: false
-    };
+    constructor(props){
+        super(props);
+        this.state = {
+            listOpen: false
+        };
+    }
 
     render() {
+
+        const { auth : {currentUser} } = this.props;
 
         return (
             <Aux>
@@ -87,10 +94,10 @@ class NavRight extends Component {
                             <Dropdown.Menu alignRight className="profile-notification">
                                 <div className="pro-head">
                                     <img src={Avatar1} className="img-radius" alt="User Profile"/>
-                                    <span>John Doe</span>
-                                    <a href={DEMO.BLANK_LINK} className="dud-logout" title="Logout">
+                                    <span>{currentUser.name}</span>
+                                    <Link to="/logout" className="dud-logout" title="Logout">
                                         <i className="feather icon-log-out"/>
-                                    </a>
+                                    </Link>
                                 </div>
                                 <ul className="pro-body">
                                     <li><a href={DEMO.BLANK_LINK} className="dropdown-item"><i className="feather icon-settings"/> Settings</a></li>
@@ -108,4 +115,4 @@ class NavRight extends Component {
     }
 }
 
-export default NavRight;
+export default connect(state=>state,null)(NavRight);

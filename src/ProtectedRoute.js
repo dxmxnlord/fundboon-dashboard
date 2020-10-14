@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
-import Context from './context';
+import {useSelector} from 'react-redux';
 
 const ProtectedRoute = ({ component: Component, ...rest }) => {
-	const { state } = useContext(Context);
+	const state = useSelector((state) => state.auth)
 	const [cookies] = useCookies(['user']);
   if(cookies.user){
     state.isAuth=true;
