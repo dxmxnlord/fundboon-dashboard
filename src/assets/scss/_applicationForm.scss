@@ -1,0 +1,200 @@
+#ApplicationFormPage {
+  ul.timeline {
+    list-style-type: none;
+    position: relative;
+  }
+
+  ul.timeline:before {
+    content: ' ';
+    background: #d4d9df;
+    display: inline-block;
+    position: absolute;
+    top: 1em;
+    left: 29px;
+    width: 2px;
+    height: calc(100% - 2em);
+    z-index: 400;
+  }
+
+  ul.timeline>li {
+    font-size: 1.2em;
+    line-height: 1em;
+    margin: 20px 0;
+    padding-left: 50px;
+    color: #aaa;
+  }
+
+  /* ul.timeline>li:hover {
+    background-color: #eee;
+    cursor: pointer;
+  } */
+
+  ul.timeline>li:before {
+    content: ' ';
+    background: white;
+    display: inline-block;
+    position: absolute;
+    border-radius: 50%;
+    border: 3px solid grey;
+    left: 20px;
+    width: 20px;
+    height: 20px;
+    z-index: 400;
+  }
+
+
+  ul.timeline>li.current,
+  ul.timeline>li.completed {
+    color: black;
+  }
+
+  ul.timeline>li.current:before {
+    border-color: $secondary-color;
+  }
+
+  ul.timeline>li.completed:before {
+    border-color: $green;
+  }
+
+  .form-control {
+    background-color: rgba(150, 150, 150, 0.1);
+    margin-top: 30px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border: 0;
+    border-bottom: 2px solid grey;
+    border-radius: 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  /* .form-control:not(:placeholder-shown) {
+    background-color: green;
+  }
+
+  .form-control:placeholder-shown {
+    background-color: red;
+  } */
+
+  .form-control:focus {
+    outline: 0;
+    border-color: 0;
+    box-shadow: none;
+    border-bottom: 2px solid $secondary-color;
+  }
+
+  .form-control:not(:placeholder-shown):valid {
+    outline: 0;
+    border-color: 0;
+    box-shadow: none;
+    border-bottom: 2px solid $green;
+  }
+
+  .form-control::placeholder {
+    color: rgba(0, 0, 0, 0);
+  }
+
+  .form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+  }
+
+  .form-control-placeholder {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    padding: 12px 0 0 13px;
+    transition: all 200ms;
+    opacity: 0.5;
+  }
+
+  .form-control:focus+.form-control-placeholder,
+  .form-control:not(:placeholder-shown)+.form-control-placeholder {
+    transform: translate3d(0, -100%, 0);
+    font-size: 75%;
+    opacity: 1;
+  }
+
+	.css-yk16xz-control {
+		background-color: rgba(150, 150, 150, 0.1);
+		min-height: calc(1.5em + 0.75rem + 2px);
+	}
+}
+@import "//fonts.googleapis.com/css?family=Open+Sans";
+
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  color: darken($mute, 33%);
+  height:4rem;
+
+  > .step {
+    position: relative;
+    display: table-cell;
+    text-align: center;
+    font-size: 0.875rem;
+    color:#6D6875;
+
+    &:before {
+      content: attr(data-step);
+      display: block;
+      margin: 0 auto;
+      background: #ffffff;
+      border:2px solid $mute;
+      color:$mute;
+      width: 2rem;
+      height: 2rem;
+      text-align: center;
+      line-height: 1.9rem;
+      border-radius: 100%;
+      position: relative;
+      z-index: 1;
+      font-weight:700;
+      font-size:1rem;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      display: block;
+      background: $mute;
+      width: 100%;
+      height: 0.125rem;
+      top: 1rem;
+      left: 50%;
+    }
+    &:last-child:after {
+      display: none;
+    }
+    &.is-complete {
+      color:#6D6875;
+
+      &:before {
+        content:'\2713';
+        color: $secondary-color;
+        background:#fef0e2;
+        border:2px solid $secondary-color;
+      }
+      &:after {
+        background: $secondary-color;
+      }
+    }
+    &.is-active {
+
+      &:before {
+        color: #FFF;
+        border:2px solid $secondary-color;
+        background: $secondary-color;
+      }
+    }
+  }
+}
+
+.card {
+	.bank {
+		float: right;
+	}
+}
