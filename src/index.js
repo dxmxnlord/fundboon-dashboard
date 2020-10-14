@@ -1,28 +1,34 @@
-import React from 'react';
+import React,{Suspense, useContext, useReducer} from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import {Provider} from 'react-redux';
-import {BrowserRouter} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
-import App from './App/index';
-import * as serviceWorker from './serviceWorker';
-import reducer from './store/reducer';
-import config from './config';
+import Context from './context';
+import reducer from './reducer';
+import ProtectedRoute from './ProtectedRoute';
+import Admin from './Admin';
+import Auth from './main/Auth';
+
+import 'bootstrap/dist/js/bootstrap';
+import './index.scss';
 
 const store = createStore(reducer);
 
-const app = (
-    <Provider store={store}>
-        <BrowserRouter basename={config.basename}>
-            {/* basename="/datta-able" */}
-            <App />
-        </BrowserRouter>
-    </Provider>
-);
+const MainApp = () => {
+	const initialState = useContext(Context);
+	const [state, dispatch] = useReducer(reducer, initialState);
+	return (
+		<Router>
+			<Context.Provider value={{ state, dispatch }}>
+				<Switch>
+					<Route exact path="/login" component={Auth} />
+					<Route exact path="/logout" component={(props)=>(<Auth defaultRoutine={"logout"} {...props}/>)} />
+					<ProtectedRoute path="/" component={Admin} />
+				</Switch>
+			</Context.Provider>
+		</Router>
+	);
+}
 
-ReactDOM.render(app, document.getElementById('root'));
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+ReactDOM.render(<MainApp/>, document.getElementById('root'));
