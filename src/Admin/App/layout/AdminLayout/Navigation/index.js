@@ -132,7 +132,8 @@ class Navigation extends Component {
     }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = ({admin}) => {
+    let state = admin;
     return {
         layout: state.layout,
         preLayout: state.preLayout,

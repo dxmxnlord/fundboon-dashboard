@@ -40,9 +40,9 @@ class OutsideClick extends Component {
     }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = ({admin}) => {
     return {
-        collapseMenu: state.collapseMenu
+        collapseMenu: admin.collapseMenu
     }
 };
 

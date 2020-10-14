@@ -49,10 +49,10 @@ class NavLeft extends Component {
     }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = ({admin}) => {
     return {
-        isFullScreen: state.isFullScreen,
-        rtlLayout: state.rtlLayout
+        isFullScreen: admin.isFullScreen,
+        rtlLayout: admin.rtlLayout
     }
 };
 

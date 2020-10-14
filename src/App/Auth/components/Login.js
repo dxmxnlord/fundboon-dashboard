@@ -3,19 +3,22 @@ import classNames from 'classnames';
 import { withRouter } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { useCookies } from 'react-cookie';
+import { useDispatch } from 'react-redux';
 
-import Context from '../../../context';
 import { useClient } from '../../../client';
 import fundboonLogo from '../../../assets/img/fundboon-logo-full.png';
+
+import 'bootstrap/dist/js/bootstrap';
+import '../../../index.scss';
 
 import { USER_EXISTS_QUERY } from '../../../graphql/queries';
 import { LOGIN_MUTATION } from '../../../graphql/mutation';
 // import { useHistory } from "react-router-dom";
 
-const Login = ({ history, location }) => {
+const Login = ({ history, location}) => {
   const client = useClient();
-  const { dispatch } = useContext(Context);
   // const [product, setfromProduct] = useState(fromProduct === undefined ? false : true);
+  const dispatch = useDispatch();
   const [status, setStatus] = useState('primary');
   const [email, setEmail] = useState('');
   const [isEmailValid, setEmailValidity] = useState(false);
@@ -45,8 +48,8 @@ const Login = ({ history, location }) => {
       console.log(login)
       const user = {
         name: login.name,
-        email:login.email,
-        id:login.id
+        email: login.email,
+        id: login.id
       }
 
       const userCookie = JSON.stringify(user);
@@ -63,7 +66,7 @@ const Login = ({ history, location }) => {
       //     }
       //   });
       // } else {
-      history.push({pathname: '/'});
+      history.push({ pathname: '/' });
       // }
 
     } 
