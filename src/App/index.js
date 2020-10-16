@@ -4,12 +4,12 @@ import Loadable from 'react-loadable';
 
 import routes from './routes';
 import ScrollToTop from './layout/ScrollToTop';
-import Loader from '../Admin/App/layout/Loader';
+import Loader from './layout/Loader';
 
 import ProtectedRoute from '../ProtectedRoute';
 
 const AdminLayout = Loadable({
-    loader: () => import('../Admin/App/layout/AdminLayout'),
+    loader: () => import('./layout/AdminLayout'),
     loading: Loader
 });
 

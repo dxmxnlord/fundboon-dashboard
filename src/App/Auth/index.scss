@@ -1,4 +1,4 @@
-@import 'assets/scss/variables';
+@import '../../fundassets/scss/variables';
 
 html,
 body,
@@ -64,5 +64,5 @@ input[type='date']::-webkit-inner-spin-button {
 @import '~bootstrap/scss/bootstrap.scss';
 //@import '~slick-carousel/slick/slick.css';
 //@import '~slick-carousel/slick/slick-theme.css';
-@import 'assets/scss/pages', 'assets/scss/layout', 'assets/scss/products',
-  'assets/scss/auth', 'assets/scss/applicationForm', 'assets/scss/floating';
+@import '../../fundassets/scss/pages', '../../fundassets/scss/layout', '../../fundassets/scss/products',
+  '../../fundassets/scss/auth', '../../fundassets/scss/applicationForm', '../../fundassets/scss/floating';
