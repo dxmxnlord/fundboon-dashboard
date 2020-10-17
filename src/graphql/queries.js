@@ -4,6 +4,7 @@ export const USER_EXISTS_QUERY = `
   }
 `;
 
+
 export const GET_ADMIN_USER_QUERY = `
 	query{
 	  getAdmin{
@@ -36,3 +37,19 @@ export const GET_ADMIN_USER_QUERY = `
 	  }
 	}
 `
+
+export const GET_ALL_APPLICATIONS_QUERY = `
+  query {
+    getAllApplicationsRequest {
+      applicationNumber
+      applicantId
+      policyId
+      type
+      appliedAt
+      applicationComplete
+      reviewStatus
+    }
+  }
+`;
+
+

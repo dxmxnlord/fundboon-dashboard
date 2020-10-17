@@ -81,11 +81,11 @@ export default {
                     icon: 'feather icon-file-text'
                 },
                 {
-                    id: 'bootstrap',
-                    title: 'Table',
+                    id: 'application',
+                    title: 'Application',
                     type: 'item',
                     icon: 'feather icon-server',
-                    url: '/tables/bootstrap'
+                    url: '/dashboard/application'
                 }
             ]
         },
