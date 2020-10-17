@@ -19,7 +19,15 @@ const navigation = {
 		            type: 'item',
 		            url: '/admin/profile',
 		            icon: 'feather icon-user',
+				},
+				{
+		            id: 'application',
+		            title: 'Application',
+		            type: 'item',
+		            url: '/admin/application',
+		            icon: 'feather icon-camera',
 		        }
+				
 		    ]
 		},
 	],
