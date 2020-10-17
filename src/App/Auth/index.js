@@ -5,10 +5,10 @@ import { connect } from "react-redux";
 import { useDispatch, useSelector } from 'react-redux';
 
 // import assets
-import fundboonLogoTextColor from '../../assets/img/fundboon-logo-text-color.png';
-import fundboonLogoTextColorInverted from '../../assets/img/fundboon-logo-text-color-inverted.png';
-import patternTopLeft from '../../assets/img/auth-tl.png';
-import patternBottomLeft from '../../assets/img/auth-bl.png';
+import fundboonLogoTextColor from '../../fundassets/img/fundboon-logo-text-color.png';
+import fundboonLogoTextColorInverted from '../../fundassets/img/fundboon-logo-text-color-inverted.png';
+import patternTopLeft from '../../fundassets/img/auth-tl.png';
+import patternBottomLeft from '../../fundassets/img/auth-bl.png';
 
 import { useClient } from '../../client';
 import Login from './components/Login';

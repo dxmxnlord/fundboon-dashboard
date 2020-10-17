@@ -1,6 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import Auth from './Auth';
+import Profile from './components/Profile';
 
 window.jQuery = $;
 window.$ = $;
@@ -12,4 +13,9 @@ const routes = [
     { path: '/logout', exact: true, name: 'Logout', component: (props) => (<Auth defaultRoutine="logout" {...props} />)},
 ];
 
-export default routes;
+const adminRoutes = [
+	{ path : '/admin/dashboard', exact: true, name: 'Dashboard', component: null},
+	{ path : '/admin/profile', exact: true, name: 'Profile', component: Profile}
+]
+
+export { routes, adminRoutes };

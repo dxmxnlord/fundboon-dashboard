@@ -6,10 +6,10 @@ import { useCookies } from 'react-cookie';
 import { useDispatch } from 'react-redux';
 
 import { useClient } from '../../../client';
-import fundboonLogo from '../../../assets/img/fundboon-logo-full.png';
+import fundboonLogo from '../../../fundassets/img/fundboon-logo-full.png';
 
 import 'bootstrap/dist/js/bootstrap';
-import '../../../index.scss';
+import '../index.scss';
 
 import { USER_EXISTS_QUERY } from '../../../graphql/queries';
 import { LOGIN_MUTATION } from '../../../graphql/mutation';
