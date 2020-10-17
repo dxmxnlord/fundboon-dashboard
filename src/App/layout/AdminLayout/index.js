@@ -8,7 +8,7 @@ import Navigation from './Navigation';
 import NavBar from './NavBar';
 import Breadcrumb from './Breadcrumb';
 import Loader from "../Loader";
-import routes from "../../routes";
+import {adminRoutes as routes} from "../../routes";
 import * as actionTypes from "../../../store/actions";
 
 import './app.scss';

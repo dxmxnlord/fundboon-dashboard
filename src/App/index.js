@@ -2,7 +2,7 @@ import React, { Component, Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Loadable from 'react-loadable';
 
-import routes from './routes';
+import {routes} from './routes';
 import ScrollToTop from './layout/ScrollToTop';
 import Loader from './layout/Loader';
 
@@ -34,7 +34,7 @@ class App extends Component {
 	    	<>
 	    		<ScrollToTop>
 	    			<Switch>
-	    				{routeList}
+                        {routeList}
 	    				<ProtectedRoute path="/" component={AdminLayout} />
 	    			</Switch>
 	    		</ScrollToTop>

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
 import config from '../../../../config';
-import navigation from '../../../../Admin/menu-items';
+import navigation from '../../../menu-items';
 const DEMO = { BLANK_LINK: '#'};
 
 class Breadcrumb extends Component {
@@ -35,6 +35,7 @@ class Breadcrumb extends Component {
                 if (collapse.type && collapse.type === 'collapse') {
                     this.getCollapse(collapse,);
                 } else if (collapse.type && collapse.type === 'item') {
+                        console.log(document.location.pathname + "   " + config.basename+collapse.url)
                     if (document.location.pathname === config.basename+collapse.url) {
                         this.setState({item: collapse, main: item});
                     }
@@ -55,7 +56,7 @@ class Breadcrumb extends Component {
                 </li>
             );
         }
-
+        console.log(this.state)
         if (this.state.item && this.state.item.type === 'item') {
             title = this.state.item.title;
             item = (
