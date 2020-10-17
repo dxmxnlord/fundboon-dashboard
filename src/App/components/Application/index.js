@@ -8,7 +8,7 @@ import { useClient } from '../../../client';
 import { useCookies } from 'react-cookie';
 import { GET_ALL_APPLICATIONS_QUERY } from '../../../graphql/queries';
 
-import Aux from "../../hoc/_Aux";
+import Aux from "../../../Admin/hoc/_Aux";
 
 const BootstrapTable = () =>  {
     const client = useClient();
