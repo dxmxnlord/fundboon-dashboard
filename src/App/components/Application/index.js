@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Row, Col, Card, Table} from 'react-bootstrap';
+import {Row, Col, Card, Table, Form, Button, InputGroup, FormControl} from 'react-bootstrap';
 import classNames from 'classnames';
 
 import Swal from 'sweetalert2';
@@ -43,10 +43,9 @@ const BootstrapTable = () =>  {
             {' '}
             {i + 1}
             </td>
-
             <td>
             {' '}
-            {application[i].applicantId}{' '}
+            {dateString}
             </td>
             <td>
             {' '}
@@ -54,19 +53,35 @@ const BootstrapTable = () =>  {
             </td>
             <td>
             {' '}
-            {application[i].policyId}
-            </td>
-            <td>
-            {' '}
             {application[i].type}
             </td>
             <td>
             {' '}
-            {dateString}
+            {application[i].applicantId}{' '}
+            </td>
+            <td>
+            {' '}
+            {i+1000}
+            </td>
+            <td>
+            {' '}
+            {i*100000}
+            </td>
+            <td>
+            {' '}
+            bank {i}
             </td>
             <td>
             {' '}
             {application[i].reviewStatus}
+            </td>
+            <td>
+            {' '}
+            FBrep {i}
+            </td>
+            <td>
+            {' '}
+            <Button>View</Button>
             </td>
         </tr>
         );
@@ -79,27 +94,41 @@ const BootstrapTable = () =>  {
                     <Col>
                         <Card>
                             <Card.Header>
+                            
                                 <Card.Title as="h5">Application Management</Card.Title>
                                 <span className="d-block m-t-5">Easily manage applications here.</span>
+                                
+                                <Button className="float-right" variant="secondary" onClick={() => {alert('To be added.')}}>New Application</Button> 
+                                <Button className="float-right" variant="success" onClick={() => {alert('To be added.')}}>Download as Excel</Button>
+                                <Col md={4} className="float-right">
+                                    <Form.Control type="text" placeholder="Search" className="mb-3" />
+                                </Col>
                             </Card.Header>
                             <Card.Body>
                                 <Table responsive hover>
                                     <thead>
                                     <tr>
-                                        <th>#</th>
-                                        <th>Applicant ID</th>
-                                        <th>Application Number</th>
-                                        <th>Policy ID</th>
-                                        <th>Type</th>
-                                        <th>Applied At</th>
-                                        <th>Review Status</th>
+                                        <th>Sr.No.</th>
+                                        <th>Appl.Date</th>
+                                        <th>Appl.#</th>
+                                        <th>Product Type</th>
+                                        <th>Customer Name</th>
+                                        <th>Associate ID</th>
+                                        <th>Loan Amount</th>
+                                        <th>Bank Name</th>
+                                        <th>Status</th>
+                                        <th>FB Rep</th>
+                                        <th>Actions</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     {isLoading == 'loading' ? Get() : <Details />}
                                     </tbody>
                                 </Table>
+                                <br />
+                                <Button className="float-right" variant="danger" onClick={() => {alert('To be added.')}}>Delete</Button>
                             </Card.Body>
+                            
                         </Card>
                     </Col>
                 </Row>
