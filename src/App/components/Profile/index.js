@@ -166,46 +166,46 @@ class Profile extends React.Component {
 
 		const showProfile = (
 			<Row>
-				<Col sm={2}>
+				<Col className="mb-3" sm={2}>
 					<Card>
 					<Card.Body>
 						<Row className="mb-5">
-							<Col>
-								<Image src={img} width={200} height={200} roundedCircle/>
+							<Col className="mb-3">
+								<Image src={img} width={180} height={180} roundedCircle/>
 							</Col>
 						</Row>
 						{ this.state.msg &&
 							<Row className="mb-5">
-								<Col>
+								<Col className="mb-3">
 									<h4 className={this.state.msg && this.state.msg == "error" ? "text-danger" : "text-success"}> {this.state.msg.val} </h4>
 								</Col>
 							</Row>
 						}
 						<Row>
-							<Col>
+							<Col className="mb-3">
 								<Button variant="outline-primary" onClick={() => {this.setState({editProfileSwitch: true, msg: null})}}>Edit Profile</Button>{' '}
 							</Col>
 						</Row>
 					</Card.Body>
 					</Card>
 				</Col>
-				<Col>
+				<Col className="mb-3">
 					<Card>
 						<Card.Header as="h3">Details</Card.Header>
 						<Card.Body>
 							<Row className="justify-content-between">
-								<Col>
+								<Col className="mb-3">
 									<h4>Email</h4>
 								</Col>
-								<Col>
+								<Col className="mb-3">
 									<h4 className="text-muted">{this.state.profile && this.state.profile.email}</h4>
 								</Col>
 							</Row>
 								<Row className="justify-content-between">
-								<Col>
+								<Col className="mb-3">
 									<h4>Alternate Email</h4>
 								</Col>
-								<Col>
+								<Col className="mb-3">
 									<h4 className="text-muted">{this.state.profile && this.state.profile.altEmail}</h4>
 								</Col>
 							</Row>
@@ -213,90 +213,90 @@ class Profile extends React.Component {
 						<Card.Header as="h3">Personal Details</Card.Header>
 						<Card.Body>
 							<Row className="justify-content-between">
-								<Col>
+								<Col className="mb-3">
 									<h4>Salutation</h4>
 								</Col>
-								<Col>
+								<Col className="mb-3">
 									<h4 className="text-muted">{this.state.profile && this.state.profile.personalDetails.salutation}</h4>
 								</Col>
 							</Row>
 							<Row className="justify-content-between">
-								<Col>
+								<Col className="mb-3">
 									<h4>First Name</h4>
 								</Col>
-								<Col>
+								<Col className="mb-3">
 									<h4 className="text-muted">{this.state.profile && this.state.profile.personalDetails.firstName}</h4>
 								</Col>
 							</Row>
 							<Row className="justify-content-between">	
-								<Col>
+								<Col className="mb-3">
 									<h4>Last Name</h4>
 								</Col>
-								<Col>
+								<Col className="mb-3">
 									<h4 className="text-muted">{this.state.profile  && this.state.profile.personalDetails.lastName}</h4>
 								</Col>
 							</Row>
 							<Row className="justify-content-between">
-								<Col>
+								<Col className="mb-3">
 									<h4>Gender</h4>
 								</Col>
-								<Col>
+								<Col className="mb-3">
 									<h4 className="text-muted">{this.state.profile && this.state.profile.personalDetails.gender}</h4>
 								</Col>
 							</Row>
 							<Row className="justify-content-between">
-								<Col>
+								<Col className="mb-3">
 									<h4>Date of Birth</h4>
 								</Col>
-								<Col>
+								<Col className="mb-3">
 									<h4 className="text-muted">{this.state.profile && this.state.profile.personalDetails.dob.substr(4,11)}</h4>
 								</Col>
 							</Row>
 							<Row className="justify-content-between">
-								<Col>
+								<Col className="mb-3">
 									<h4>Age</h4>
 								</Col>
-								<Col>
+								<Col className="mb-3">
 									<h4 className="text-muted">{this.state.profile && Profile.calculateAge(new Date(this.state.profile.personalDetails.dob))}</h4>
 								</Col>
 							</Row>
 							<Row className="justify-content-between">
-								<Col>
+								<Col className="mb-3">
 									<h4>Mobile Number</h4>
 								</Col>
-								<Col>
+								<Col className="mb-3">
 									<h4 className="text-muted">{this.state.profile && this.state.profile.personalDetails.mobileNumber}</h4>
 								</Col>
 							</Row>
 							<Row className="justify-content-between">
-								<Col>
+								<Col className="mb-3">
 									<h4>Nationality</h4>
 								</Col>
-								<Col>
+								<Col className="mb-3">
 									<h4 className="text-muted">{this.state.profile && this.state.profile.personalDetails.nationality}</h4>
 								</Col>
 							</Row>
 							<Row className="justify-content-between">
-								<Col>
+								<Col className="mb-3">
 									<h4>Pan</h4>
 								</Col>
-								<Col>
+								<Col className="mb-3">
 									<h4 className="text-muted">{this.state.profile && this.state.profile.personalDetails.pan}</h4>
 								</Col>
 							</Row>
 							<Row className="justify-content-between">
-								<Col>
+								<Col className="mb-3">
 									<h4>Aadhar</h4>
 								</Col>
-								<Col>
+								<Col className="mb-3">
 									<h4 className="text-muted">{this.state.profile && this.state.profile.personalDetails.aadhar}</h4>
 								</Col>
 							</Row>
 							<Row className="justify-content-between">
-								<Col>
+								<Col className="mb-3">
 									<h4>Type</h4>
 								</Col>
-								<Col>
+								<Col className="mb-3">
 									<h4 className="text-muted">{this.state.profile && this.state.profile.personalDetails.ptype}</h4>
 								</Col>
 							</Row>
@@ -304,18 +304,18 @@ class Profile extends React.Component {
 						<Card.Header as="h3">Contact Details</Card.Header>
 						<Card.Body>
 							<Row className="justify-content-between">
-								<Col>
+								<Col className="mb-3">
 									<h4>Permanent Address</h4>
 								</Col>
-								<Col>
+								<Col className="mb-3">
 									<h4 className="text-muted">{this.state.profile && this.state.profile.contactDetails.permanentAddress}</h4>
 								</Col>
 							</Row>
 							<Row className="justify-content-between">
-								<Col>
+								<Col className="mb-3">
 									<h4>Communication Address</h4>
 								</Col>
-								<Col>
+								<Col className="mb-3">
 									<h4 className="text-muted">{this.state.profile && this.state.profile.contactDetails.communicationAddress}</h4>
 								</Col>
 							</Row>
@@ -323,10 +323,10 @@ class Profile extends React.Component {
 						<Card.Header as="h3">Education Details</Card.Header>
 						<Card.Body>
 							<Row className="justify-content-between">
-								<Col>
+								<Col className="mb-3">
 									<h4>Qualification</h4>
 								</Col>
-								<Col>
+								<Col className="mb-3">
 									<h4 className="text-muted">{this.state.profile && this.state.profile.educationDetails.qualification}</h4>
 								</Col>
 							</Row>
@@ -334,18 +334,18 @@ class Profile extends React.Component {
 						<Card.Header as="h3">Employment Details</Card.Header>
 						<Card.Body>
 							<Row className="justify-content-between">
-								<Col>
+								<Col className="mb-3">
 									<h4>Office Name</h4>
 								</Col>
-								<Col>
+								<Col className="mb-3">
 									<h4 className="text-muted">{this.state.profile && this.state.profile.employmentDetails.officeName}</h4>
 								</Col>
 							</Row>
 							<Row className="justify-content-between">
-								<Col>
+								<Col className="mb-3">
 									<h4>Office Address</h4>
 								</Col>
-								<Col>
+								<Col className="mb-3">
 									<h4 className="text-muted">{this.state.profile && this.state.profile.employmentDetails.officeAddress}</h4>
 								</Col>
 							</Row>
@@ -357,36 +357,36 @@ class Profile extends React.Component {
 
 		const editProfile = (
 			<Row>
-				<Col sm={2}>
+				<Col className="mb-3" sm={2}>
 					<Card>
 					<Card.Body>
 						<Row className="mb-5">
-							<Col>
+							<Col className="mb-3">
 								<Image src={img} width={200} height={200} roundedCircle/>
 							</Col>
 						</Row>
 						<Row>
-							<Col>
+							<Col className="mb-3">
 								<Button variant="outline-primary" onClick={(e) => {this.handleSubmit(e)}}>Save Profile</Button>{' '}
 							</Col>
 						</Row>
 						<Row>
-							<Col>
+							<Col className="mb-3">
 								<Button variant="outline-primary" onClick={() => {this.setState({editProfileSwitch: false})}}>Go Back</Button>{' '}
 							</Col>
 						</Row>
 					</Card.Body>
 					</Card>
 				</Col>
-				<Col>
+				<Col className="mb-3">
 					<Card>
 						<Card.Header as="h3">Details</Card.Header>
 						<Card.Body>
 							<Row className="justify-content-between mb-2">
-								<Col>
+								<Col className="mb-3">
 									<h4>Alternate Email</h4>
 								</Col>
-								<Col>
+								<Col className="mb-3">
 									<Form.Control 
 										type="email" 
 										placeholder="Enter alternate email" 
@@ -400,24 +400,29 @@ class Profile extends React.Component {
 						<Card.Header as="h3">Personal Details</Card.Header>
 						<Card.Body>
 							<Row className="justify-content-between mb-2">
-								<Col>
+								<Col className="mb-3">
 									<h4>Salutation</h4>
 								</Col>
-								<Col>
+								<Col className="mb-3">
 									<Form.Control 
-										type="text" 
+										as="select"
+										custom 
 										placeholder="Salutation" 
 										onChange = {(e) => {this.handleChange(e,"personalDetails","salutation")}}
 										value = {this.state.profileEdit && this.state.profileEdit.personalDetails.salutation}
 										isInvalid = {this.state.invalid.personalDetails.salutation}
-									/>
+									>
+										<option value="Mr.">Mr.</option>
+										<option value="Ms.">Ms.</option>
+										<option value="Mrs.">Mrs.</option>
+									</Form.Control>
 								</Col>
 							</Row>
 							<Row className="justify-content-between mb-2">
-								<Col>
+								<Col className="mb-3">
 									<h4>First Name</h4>
 								</Col>
-								<Col>
+								<Col className="mb-3">
 								<Form.Control 
 									type="text" 
 									placeholder="First Name" 
@@ -428,10 +433,10 @@ class Profile extends React.Component {
 								</Col>
 							</Row>
 							<Row className="justify-content-between mb-2">	
-								<Col>
+								<Col className="mb-3">
 									<h4>Last Name</h4>
 								</Col>
-								<Col>
+								<Col className="mb-3">
 									<Form.Control 
 										type="text" 
 										placeholder="Last Name" 
@@ -442,10 +447,10 @@ class Profile extends React.Component {
 								</Col>
 							</Row>
 							<Row className="justify-content-between mb-2">
-								<Col>
+								<Col className="mb-3">
 									<h4>Gender</h4>
 								</Col>
-								<Col>
+								<Col className="mb-3">
 									<Form.Control 
 										as="select"
 										custom
@@ -461,26 +466,19 @@ class Profile extends React.Component {
 								</Col>
 							</Row>
 							<Row className="justify-content-between mb-2">
-								<Col>
+								<Col className="mb-3">
 									<h4>Date of Birth</h4>
 								</Col>
-								<Col>
+								<Col className="mb-3">
 									<DatePicker selected={this.state.profileEdit && this.state.profileEdit.personalDetails.dob ? new Date(this.state.profileEdit.personalDetails.dob) : new Date()} onChange={(date) => {this.handleChange(null,"personalDetails","dob",date.toString())}} />
 								</Col>
 							</Row>
+
 							<Row className="justify-content-between mb-2">
-								<Col>
-									<h4>Age</h4>
-								</Col>
-								<Col>
-									<h4 className="text-muted">{this.state.profileEdit && Profile.calculateAge(this.state.profileEdit.personalDetails.dob)}</h4>
-								</Col>
-							</Row>
-							<Row className="justify-content-between mb-2">
-								<Col>
+								<Col className="mb-3">
 									<h4>Mobile Number</h4>
 								</Col>
-								<Col>
+								<Col className="mb-3">
 									<Form.Control 
 										type="text" 
 										placeholder="Phone Number" 
@@ -494,10 +492,10 @@ class Profile extends React.Component {
 								</Col>
 							</Row>
 							<Row className="justify-content-between mb-2">
-								<Col>
+								<Col className="mb-3">
 									<h4>Nationality</h4>
 								</Col>
-								<Col>
+								<Col className="mb-3">
 									<Form.Control 
 										type="text" 
 										placeholder="Nationality" 
@@ -508,10 +506,10 @@ class Profile extends React.Component {
 								</Col>
 							</Row>
 							<Row className="justify-content-between mb-2">
-								<Col>
+								<Col className="mb-3">
 									<h4>Pan</h4>
 								</Col>
-								<Col>
+								<Col className="mb-3">
 									<Form.Control 
 										type="text" 
 										placeholder="PAN" 
@@ -525,10 +523,10 @@ class Profile extends React.Component {
 								</Col>
 							</Row>
 							<Row className="justify-content-between mb-2">
-								<Col>
+								<Col className="mb-3">
 									<h4>Aadhar</h4>
 								</Col>
-								<Col>
+								<Col className="mb-3">
 									<Form.Control 
 										type="text" 
 										placeholder="Aadhar" 
@@ -545,10 +543,10 @@ class Profile extends React.Component {
 						<Card.Header as="h3">Contact Details</Card.Header>
 						<Card.Body>
 							<Row className="justify-content-between mb-2">
-								<Col>
+								<Col className="mb-3">
 									<h4>Permanent Address</h4>
 								</Col>
-								<Col>
+								<Col className="mb-3">
 									<Form.Control 
 										type="text" 
 										placeholder="Permanent Address" 
@@ -559,10 +557,10 @@ class Profile extends React.Component {
 								</Col>
 							</Row>
 							<Row className="justify-content-between mb-2">
-								<Col>
+								<Col className="mb-3">
 									<h4>Communication Address</h4>
 								</Col>
-								<Col>
+								<Col className="mb-3">
 									<Form.Control 
 										type="text" 
 										placeholder="Contact Address" 
@@ -576,27 +574,33 @@ class Profile extends React.Component {
 						<Card.Header as="h3">Education Details</Card.Header>
 						<Card.Body>
 							<Row className="justify-content-between mb-2">
-								<Col>
+								<Col className="mb-3">
 									<h4>Qualification</h4>
 								</Col>
-								<Col>
+								<Col className="mb-3">
 									<Form.Control 
-										type="text" 
+										as="select"
+										custom
 										placeholder="Qualification" 
 										onChange = {(e) => {this.handleChange(e,"educationDetails","qualification")}}
 										value = {this.state.profileEdit && this.state.profileEdit.educationDetails.qualification}
 										isInvalid = {this.state.invalid.educationDetails.qualification}
-									/>
+									>
+										<option value="Under Graduate">Under Graduate</option>
+										<option value="Post Graduate">Post Graduate</option>
+										<option value="Doctorate">Doctorate</option>
+										<option value="Professional Degree">Professional Degree</option>
+									</Form.Control>
 								</Col>
 							</Row>
 						</Card.Body>
 						<Card.Header as="h3">Employment Details</Card.Header>
 						<Card.Body>
 							<Row className="justify-content-between mb-2">
-								<Col>
+								<Col className="mb-3">
 									<h4>Office Name</h4>
 								</Col>
-								<Col>
+								<Col className="mb-3">
 									<Form.Control 
 										type="text" 
 										placeholder="Office Name" 
@@ -607,10 +611,10 @@ class Profile extends React.Component {
 								</Col>
 							</Row>
 							<Row className="justify-content-between mb-2">
-								<Col>
+								<Col className="mb-3">
 									<h4>Office Address</h4>
 								</Col>
-								<Col>
+								<Col className="mb-3">
 									<Form.Control 
 										type="text" 
 										placeholder="Office Address" 
