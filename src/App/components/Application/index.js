@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {Row, Col, Card, Table, Form, Button, InputGroup, FormControl} from 'react-bootstrap';
+import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 import classNames from 'classnames';
 
 import Swal from 'sweetalert2';
@@ -57,7 +58,7 @@ const BootstrapTable = () =>  {
             </td>
             <td>
             {' '}
-            {application[i].applicantId}{' '}
+            {application[i].personalDetails.firstName}{' '}{application[i].personalDetails.lastName}{' '}
             </td>
             <td>
             {' '}
@@ -65,11 +66,11 @@ const BootstrapTable = () =>  {
             </td>
             <td>
             {' '}
-            {i*100000}
+            {application[i].loanDetails.loanAmount}{' '}
             </td>
             <td>
             {' '}
-            bank {i}
+            {application[i].bankName}{' '}
             </td>
             <td>
             {' '}
@@ -97,15 +98,19 @@ const BootstrapTable = () =>  {
                             
                                 <Card.Title as="h5">Application Management</Card.Title>
                                 <span className="d-block m-t-5">Easily manage applications here.</span>
-                                
+                                <ReactHTMLTableToExcel
+                                className="float-right btn btn-success"
+                                table="table-to-xls"
+                                filename="fundboon-applications"
+                                sheet="fundboon-applications"
+                                buttonText="Download as Excel"/>
                                 <Button className="float-right" variant="secondary" onClick={() => {alert('To be added.')}}>New Application</Button> 
-                                <Button className="float-right" variant="success" onClick={() => {alert('To be added.')}}>Download as Excel</Button>
                                 <Col md={4} className="float-right">
                                     <Form.Control type="text" placeholder="Search" className="mb-3" />
                                 </Col>
                             </Card.Header>
                             <Card.Body>
-                                <Table responsive hover>
+                                <Table responsive hover id="table-to-xls">
                                     <thead>
                                     <tr>
                                         <th>Sr.No.</th>

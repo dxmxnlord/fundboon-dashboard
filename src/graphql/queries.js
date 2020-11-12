@@ -44,7 +44,18 @@ export const GET_ALL_APPLICATIONS_QUERY = `
       applicationNumber
       applicantId
       policyId
-      type
+	  type
+	  bankName
+	  loanDetails{
+		  loanAmount
+	  },
+	  personalDetails{
+		firstName
+		lastName
+		gender
+		dob
+		mob
+	  },
       appliedAt
       applicationComplete
       reviewStatus
