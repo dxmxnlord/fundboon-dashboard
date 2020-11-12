@@ -26,6 +26,13 @@ const navigation = {
 		            type: 'item',
 		            url: '/admin/application',
 		            icon: 'feather icon-camera',
+				},
+				{
+		            id: 'usermgmt',
+		            title: 'User Management',
+		            type: 'item',
+		            url: '/admin/usermgmt',
+		            icon: 'feather icon-users',
 		        }
 				
 		    ]
