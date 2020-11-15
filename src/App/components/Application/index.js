@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Row, Col, Card, Table, Form, Button, InputGroup, FormControl} from 'react-bootstrap';
+import {Row, Col, Card, Table, Form, Button, InputGroup, FormControl, Modal} from 'react-bootstrap';
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 import classNames from 'classnames';
 
@@ -8,6 +8,7 @@ import FuzzySearch from 'fuzzy-search';
 import { useClient } from '../../../client';
 import { useCookies } from 'react-cookie';
 import { GET_ALL_APPLICATIONS_QUERY } from '../../../graphql/queries';
+import ViewApplication from "./ViewApplication";
 
 import Aux from "../../../Admin/hoc/_Aux";
 
@@ -17,6 +18,11 @@ const BootstrapTable = () =>  {
     const [application, setApplication] = useState([]);
     const [search, setSearch] = useState('');
     const [isLoading, setLoading] = useState('loading');
+    const [show, setShow] = useState(false);
+    const [showView, setShowView] = useState(false);
+
+    const handleCloseShow = () => setShowView(false);
+    const handleShowView = () => setShowView(true);
     const getApplicationsRequest = async e => {
     try {
         const application = await client.request(GET_ALL_APPLICATIONS_QUERY);
@@ -40,9 +46,16 @@ const BootstrapTable = () =>  {
         var dateString = theDate.toGMTString();
         card.push(
         <tr>
+            <td>
+            <input className="form-control" type="checkbox" />
+            </td>
             <td scope="row">
             {' '}
             {i + 1}
+            </td>
+            <td>
+            {' '}
+            {dateString}
             </td>
             <td>
             {' '}
@@ -82,7 +95,7 @@ const BootstrapTable = () =>  {
             </td>
             <td>
             {' '}
-            <Button>View</Button>
+            <Button onClick={handleShowView}>View</Button>
             </td>
         </tr>
         );
@@ -110,12 +123,28 @@ const BootstrapTable = () =>  {
                                 </Col>
                             </Card.Header>
                             <Card.Body>
+
+                            <Modal show={showView} onHide={handleCloseShow} size="lg">
+                                <Modal.Header closeButton>
+                                <Modal.Title>View Application</Modal.Title>
+                                </Modal.Header>
+                                <Modal.Body>
+                                <ViewApplication />
+                                </Modal.Body>
+                                <Modal.Footer>
+                                <Button variant="secondary" onClick={handleCloseShow}>
+                                    Close
+                                </Button>
+                                </Modal.Footer>
+                            </Modal>
                                 <Table responsive hover id="table-to-xls">
                                     <thead>
                                     <tr>
+                                        <th>Select</th>
                                         <th>Sr.No.</th>
-                                        <th>Appl.Date</th>
-                                        <th>Appl.#</th>
+                                        <th>Applied Date</th>
+                                        <th>Updated Date</th>
+                                        <th>Application Number</th>
                                         <th>Product Type</th>
                                         <th>Customer Name</th>
                                         <th>Associate ID</th>
