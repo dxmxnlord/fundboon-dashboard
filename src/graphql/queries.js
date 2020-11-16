@@ -55,6 +55,13 @@ export const GET_ALL_APPLICATIONS_QUERY = `
 		gender
 		dob
 		mob
+		maritalStatus
+		qualification
+		pan
+		aadhaar
+		nation
+		primaryEmail
+		secondaryEmail
 	  },
       appliedAt
       applicationComplete

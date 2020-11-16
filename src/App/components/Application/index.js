@@ -11,6 +11,9 @@ import { GET_ALL_APPLICATIONS_QUERY } from '../../../graphql/queries';
 import ViewApplication from "./ViewApplication";
 
 import Aux from "../../../Admin/hoc/_Aux";
+import { ContactSupportOutlined } from '@material-ui/icons';
+
+var applications = [];
 
 const BootstrapTable = () =>  {
     const client = useClient();
@@ -20,9 +23,19 @@ const BootstrapTable = () =>  {
     const [isLoading, setLoading] = useState('loading');
     const [show, setShow] = useState(false);
     const [showView, setShowView] = useState(false);
+    const [applicationId, setApplicationId] = useState('');
 
-    const handleCloseShow = () => setShowView(false);
-    const handleShowView = () => setShowView(true);
+
+    const handleCloseShow = () => {
+        setShowView(false);
+        setApplicationId('');
+    }
+    const handleShowView = (event, value) => {
+        setShowView(true);
+        setApplicationId(value);
+    }
+    
+
     const getApplicationsRequest = async e => {
     try {
         const application = await client.request(GET_ALL_APPLICATIONS_QUERY);
@@ -40,10 +53,26 @@ const BootstrapTable = () =>  {
     };
     const Details = () => {
     const card = [];
-
+    
     for (let i = 0; i < application.length; i++) {
         var theDate = new Date(application[i].appliedAt/1);
         var dateString = theDate.toGMTString();
+
+        var data = {};
+        data['firstName'] = application[i].personalDetails.firstName;
+        data['lastName'] = application[i].personalDetails.lastName;
+        data['mob'] = application[i].personalDetails.mob;
+        data['dob'] = dateString;
+        data['gender'] = application[i].personalDetails.gender;
+        data['pan'] = application[i].personalDetails.pan;
+        data['aadhaar'] = application[i].personalDetails.aadhaar;
+        data['nation'] = application[i].personalDetails.nation;
+        data['primaryEmail'] = application[i].personalDetails.primaryEmail;
+        data['secondaryEmail'] = application[i].personalDetails.secondaryEmail;
+        data['qualification'] = application[i].personalDetails.qualification;
+        data['maritalStatus'] = application[i].personalDetails.maritalStatus;
+        applications.push(data);
+
         card.push(
         <tr>
             <td>
@@ -95,7 +124,7 @@ const BootstrapTable = () =>  {
             </td>
             <td>
             {' '}
-            <Button onClick={handleShowView}>View</Button>
+            <Button onClick={(event) => handleShowView(event, i)}>View</Button>
             </td>
         </tr>
         );
@@ -129,7 +158,7 @@ const BootstrapTable = () =>  {
                                 <Modal.Title>View Application</Modal.Title>
                                 </Modal.Header>
                                 <Modal.Body>
-                                <ViewApplication />
+                                <ViewApplication {...applications[applicationId]} />
                                 </Modal.Body>
                                 <Modal.Footer>
                                 <Button variant="secondary" onClick={handleCloseShow}>
@@ -137,6 +166,7 @@ const BootstrapTable = () =>  {
                                 </Button>
                                 </Modal.Footer>
                             </Modal>
+
                                 <Table responsive hover id="table-to-xls">
                                     <thead>
                                     <tr>

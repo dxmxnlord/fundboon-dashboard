@@ -6,10 +6,10 @@ import EmploymentDetails from "./EmploymentDetailsView";
 import LoanDetails from "./LoanDetailsView";
 import BankDetails from "./BankDetailsView";
 
-const ViewApplication = () => {
+const ViewApplication = props => {
   const [currentForm, updateCurrentForm] = useState(1);
   const handleSelect = (eventKey) => updateCurrentForm(parseInt(eventKey));
-
+  
   return (
     <>
       <Nav
@@ -44,7 +44,7 @@ const ViewApplication = () => {
           </Nav.Link>
         </Nav.Item>
       </Nav>
-      {currentForm === 1 && <PersonalDetails />}
+      {currentForm === 1 && <PersonalDetails {...props} />}
       {currentForm === 2 && <AddressDetails />}
       {currentForm === 3 && <EmploymentDetails />}
       {currentForm === 4 && <LoanDetails />}
