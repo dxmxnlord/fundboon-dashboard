@@ -45,10 +45,10 @@ const ViewApplication = props => {
         </Nav.Item>
       </Nav>
       {currentForm === 1 && <PersonalDetails {...props} />}
-      {currentForm === 2 && <AddressDetails />}
-      {currentForm === 3 && <EmploymentDetails />}
-      {currentForm === 4 && <LoanDetails />}
-      {currentForm === 5 && <BankDetails />}
+      {currentForm === 2 && <AddressDetails {...props} />}
+      {currentForm === 3 && <EmploymentDetails {...props} />}
+      {currentForm === 4 && <LoanDetails {...props} />}
+      {currentForm === 5 && <BankDetails {...props} />}
     </>
   );
 };

@@ -47,7 +47,27 @@ export const GET_ALL_APPLICATIONS_QUERY = `
 	  type
 	  bankName
 	  loanDetails{
-		  loanAmount
+		loanAmount
+		loanCity
+		assetCity
+		assetWorth
+		loanTenure
+		loanPurpose
+		assetState
+		assetType
+		homeLoanCity
+	  },
+	  bankDetails{
+		coApplicant
+		coApplicantIncome
+		coApplicantEMI
+		coApplicantRelation
+		exiloan
+		exiLoanBank
+		exiEMI
+		chqbnc
+		exiLoanType
+		transfer
 	  },
 	  personalDetails{
 		firstName
@@ -63,6 +83,32 @@ export const GET_ALL_APPLICATIONS_QUERY = `
 		primaryEmail
 		secondaryEmail
 	  },
+	  addressDetails{
+		permanentAddress
+		permanentAddressLandmark
+		permanentAddressType
+		permanentAddressPincode
+		permanentAddressPincodeCity
+		permanentAddressPincodeState
+		permanentAddressAccomodation
+		currentAddress
+		currentAddressLandmark
+		currentAddressType
+		currentAddressPincode
+		currentAddressPincodeCity
+		currentAddressPincodeState
+		currentAddressAccomodation
+	  },
+	  employmentDetails{
+		emp
+		income
+		company
+		turnover
+		officeAddress
+		officeAddressLandmark
+		officeAddressPincode
+		industryType
+	  }
       appliedAt
       applicationComplete
       reviewStatus
