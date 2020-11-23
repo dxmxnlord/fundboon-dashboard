@@ -60,67 +60,6 @@ const BootstrapTable = () =>  {
 
         var data = {};
         data['id'] = i;
-        /*data['firstName'] = application[i].personalDetails.firstName;
-        data['lastName'] = application[i].personalDetails.lastName;
-        data['mob'] = application[i].personalDetails.mob;
-        data['dob'] = application[i].personalDetails.dob;
-        data['gender'] = application[i].personalDetails.gender;
-        data['pan'] = application[i].personalDetails.pan;
-        data['aadhaar'] = application[i].personalDetails.aadhaar;
-        data['nation'] = application[i].personalDetails.nation;
-        data['primaryEmail'] = application[i].personalDetails.primaryEmail;
-        data['secondaryEmail'] = application[i].personalDetails.secondaryEmail;
-        data['qualification'] = application[i].personalDetails.qualification;
-        data['maritalStatus'] = application[i].personalDetails.maritalStatus;
-
-
-        data['permanentAddress'] = application[i].addressDetails.permanentAddress;
-        data['permanentAddressLandmark'] = application[i].addressDetails.permanentAddressLandmark;
-        data['permanentAddressType'] = application[i].addressDetails.permanentAddressType;
-        data['permanentAddressPincode'] = application[i].addressDetails.permanentAddressPincode;
-        data['permanentAddressPincodeCity'] = application[i].addressDetails.permanentAddressPincodeCity;
-        data['permanentAddressPincodeState'] = application[i].addressDetails.permanentAddressPincodeState;
-        data['permanentAddressAccomodation'] = application[i].addressDetails.permanentAddressAccomodation;
-        data['currentAddress'] = application[i].addressDetails.currentAddress;
-        data['currentAddressLandmark'] = application[i].addressDetails.currentAddressLandmark;
-        data['currentAddressType'] = application[i].addressDetails.currentAddressType;
-        data['currentAddressPincode'] = application[i].addressDetails.currentAddressPincode;
-        data['currentAddressPincodeCity'] = application[i].addressDetails.currentAddressPincodeCity;
-        data['currentAddressPincodeState'] = application[i].addressDetails.currentAddressPincodeState;
-        data['currentAddressAccomodation'] = application[i].addressDetails.currentAddressAccomodation;
-
-
-        data['emp'] = application[i].employmentDetails.emp;
-        data['income'] = application[i].employmentDetails.income;
-        data['company'] = application[i].employmentDetails.company;
-        data['turnover'] = application[i].employmentDetails.turnover;
-        data['officeAddress'] = application[i].employmentDetails.officeAddress;
-        data['officeAddressLandmark'] = application[i].employmentDetails.officeAddressLandmark;
-        data['officeAddressPincode'] = application[i].employmentDetails.officeAddressPincode;
-        data['industryType'] = application[i].employmentDetails.industryType;
-
-
-        data['loanAmount'] = application[i].loanDetails.loanAmount;
-        data['loanCity'] = application[i].loanDetails.loanCity;
-        data['loanTenure'] = application[i].loanDetails.loanTenure;
-        data['loanPurpose'] = application[i].loanDetails.loanPurpose;
-        data['assetWorth'] = application[i].loanDetails.assetWorth;
-        data['assetCity'] = application[i].loanDetails.assetCity;
-        data['assetState'] = application[i].loanDetails.assetState;
-        data['assetType'] = application[i].loanDetails.assetType;
-        data['homeLoanCity'] = application[i].loanDetails.homeLoanCity;
-
-
-        data['coApplicant'] = application[i].bankDetails.coApplicant;
-        data['coApplicantIncome'] = application[i].bankDetails.coApplicantIncome;
-        data['coApplicantEMI'] = application[i].bankDetails.coApplicantEMI;
-        data['coApplicantRelation'] = application[i].bankDetails.coApplicantRelation;
-        data['exiloan'] = application[i].bankDetails.exiloan;
-        data['exiLoanBank'] = application[i].bankDetails.exiLoanBank;
-        data['exiEMI'] = application[i].bankDetails.exiEMI;
-        data['chqbnc'] = application[i].bankDetails.chqbnc;
-        data['exiLoanType'] = application[i].bankDetails.exiLoanType;
-        data['transfer'] = application[i].bankDetails.transfer;*/
 
         applications.push(data);
 
