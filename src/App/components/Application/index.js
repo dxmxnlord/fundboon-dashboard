@@ -59,10 +59,11 @@ const BootstrapTable = () =>  {
         var dateString = theDate.toGMTString();
 
         var data = {};
-        data['firstName'] = application[i].personalDetails.firstName;
+        data['id'] = i;
+        /*data['firstName'] = application[i].personalDetails.firstName;
         data['lastName'] = application[i].personalDetails.lastName;
         data['mob'] = application[i].personalDetails.mob;
-        data['dob'] = dateString;
+        data['dob'] = application[i].personalDetails.dob;
         data['gender'] = application[i].personalDetails.gender;
         data['pan'] = application[i].personalDetails.pan;
         data['aadhaar'] = application[i].personalDetails.aadhaar;
@@ -119,7 +120,7 @@ const BootstrapTable = () =>  {
         data['exiEMI'] = application[i].bankDetails.exiEMI;
         data['chqbnc'] = application[i].bankDetails.chqbnc;
         data['exiLoanType'] = application[i].bankDetails.exiLoanType;
-        data['transfer'] = application[i].bankDetails.transfer;
+        data['transfer'] = application[i].bankDetails.transfer;*/
 
         applications.push(data);
 
@@ -207,6 +208,7 @@ const BootstrapTable = () =>  {
                                 <Modal.Header closeButton>
                                 <Modal.Title>View Application</Modal.Title>
                                 </Modal.Header>
+                                
                                 <Modal.Body>
                                 <ViewApplication {...applications[applicationId]} />
                                 </Modal.Body>
