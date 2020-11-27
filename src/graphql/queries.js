@@ -117,3 +117,21 @@ export const GET_ALL_APPLICATIONS_QUERY = `
 `;
 
 
+
+export const getAllUsersForAdmin = `
+query{
+	getUsersAdmin{
+	  createdDate,
+	  updatedDate,
+	  lastLoginDate,
+	  id,
+	  role,
+	  personalDetails{
+		firstName
+		lastName
+	  },
+	  adminViewID,
+	  adminVerified
+	}
+  }
+`

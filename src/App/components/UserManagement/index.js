@@ -18,14 +18,14 @@ import Swal from "sweetalert2";
 import FuzzySearch from "fuzzy-search";
 import { useClient } from "../../../client";
 import { useCookies } from "react-cookie";
-import { GET_ALL_APPLICATIONS_QUERY } from "../../../graphql/queries";
+import { GET_ADMIN_USER_QUERY } from "../../../graphql/queries";
 
 import Aux from "../../../Admin/hoc/_Aux";
 
 const UserManagement = () => {
   const client = useClient();
   const [cookies, removeCookie] = useCookies(["user"]);
-  const [application, setApplication] = useState([]);
+  const [usersAdmin, setUsers] = useState([]);
   const [search, setSearch] = useState("");
   const [isLoading, setLoading] = useState("loading");
   const [show, setShow] = useState(false);
@@ -35,12 +35,12 @@ const UserManagement = () => {
   const handleShow = () => setShow(true);
   const handleCloseShow = () => setShowView(false);
   const handleShowView = () => setShowView(true);
-  const getApplicationsRequest = async (e) => {
+  const getUsersRequest = async (e) => {
     try {
-      const application = await client.request(GET_ALL_APPLICATIONS_QUERY);
+      const users = await client.request(GET_ADMIN_USER_QUERY);
 
-      setApplication(application.getAllApplicationsRequest);
-      console.log(application);
+      setUsers(users.getUsersAdmin);
+      console.log(users);
       setLoading("");
     } catch (err) {
       console.log(err);
@@ -48,29 +48,44 @@ const UserManagement = () => {
     }
   };
   const Get = () => {
-    if (isLoading == "loading") getApplicationsRequest();
+    console.log('Randi')
+    if (isLoading == "loading") getUsersRequest();
   };
 
   const Details = () => {
     const card = [];
 
-    for (let i = 0; i < application.length; i++) {
-      var theDate = new Date(application[i].appliedAt / 1);
-      var dateString = theDate.toGMTString();
+    for (let i = 0; i < usersAdmin.length; i++) {
+      let createDate, updatedDate, lastLoginDate;
+      if (usersAdmin[i].createdDate) {
+        createDate = new Date(usersAdmin[i].createdDate / 1).toGMTString();
+      } else {
+        createDate = "Not Available";
+      }
+      if (usersAdmin[i].updatedDate) {
+        updatedDate = new Date(usersAdmin[i].updatedDate / 1).toGMTString();
+      } else {
+        updatedDate = "Not Available";
+      }
+      if (usersAdmin[i].lastLoginDate) {
+        lastLoginDate = new Date(usersAdmin[i].lastLoginDate / 1).toGMTString();
+      } else {
+        lastLoginDate = "Not Available";
+      }
       card.push(
         <tr>
           <td>
             <input className="form-control" type="checkbox" />
           </td>
           <td scope="row"> {i + 1}</td>
-          <td> {dateString}</td>
-          <td> {dateString} </td>
-          <td> {dateString}</td>
-          <td> {application[i].applicantId} </td>
-          <td>Admin</td>
+          <td> {createDate}</td>
+          <td> {updatedDate} </td>
+          <td> {lastLoginDate}</td>
+          <td> {usersAdmin[i].id} </td>
+          <td>{usersAdmin[i].role}</td>
           <td> Me</td>
-          <td> {i * 1000}</td>
-          <td> {application[i].reviewStatus}</td>
+          <td> {usersAdmin[i].adminViewID}</td>
+          <td> {usersAdmin[i].adminVerified ? "Verified" : "Not Verified"}</td>
           <td>
             {" "}
             <Button onClick={handleShowView}>View</Button>
