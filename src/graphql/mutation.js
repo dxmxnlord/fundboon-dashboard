@@ -193,3 +193,66 @@ export const UPDATE_APPLICATION_DATA = `
     }
   }
 `;
+
+
+export const UPDATE_PRODUCT_DATA = `
+  mutation(
+    $bankName: String,
+    $bankCode: String,
+    $fbBankCode: String,
+    $productName: String,
+    $productCode: String,
+    $fbProductCode: String,
+    $minAge: Float,
+    $maxAge: Float,
+    $minIncome: Float,
+    $minLoanAmount: Float,
+    $maxLoanAmount: Float,
+    $minLoanRatio: Float,
+    $maxLoanRatio: Float,
+    $minLoanTenure: Float,
+    $maxLoanTenure: Float,
+    $minInterestRateMen: Float,
+    $minInterestRateWomen: Float,
+    $minProcessingFee: Float,
+    $minPreclosureCharge: Float,
+    $maxPreclosureCharge: Float,
+    $fbProcessingFee: Float,
+    $minProcessingFeeSlab: Float,
+    $maxProcessingFeeSlab: Float,
+    $coApplicantMaxEMI: Float,
+    $coApplicantMinAge: Float,
+    $coApplicantMinSalary: Float
+		) {
+    updateProductData(input:{
+      bankName: $bankName,
+      bankCode: $bankCode,
+      fbBankCode: $fbBankCode,
+      productName: $productName,
+      productCode: $productCode,
+      fbProductCode: $fbProductCode,
+      minAge: $minAge,
+      maxAge: $maxAge,
+      minIncome: $minIncome,
+      minLoanAmount: $minLoanAmount,
+      maxLoanAmount: $maxLoanAmount,
+      minLoanRatio: $minLoanRatio,
+      maxLoanRatio: $maxLoanRatio,
+      minLoanTenure: $minLoanTenure,
+      maxLoanTenure: $maxLoanTenure,
+      minInterestRateMen: $minInterestRateMen,
+      minInterestRateWomen: $minInterestRateWomen,
+      minProcessingFee: $minProcessingFee,
+      minPreclosureCharge: $minPreclosureCharge,
+      maxPreclosureCharge: $maxPreclosureCharge,
+      fbProcessingFee: $fbProcessingFee,
+      minProcessingFeeSlab: $minProcessingFeeSlab,
+      maxProcessingFeeSlab: $maxProcessingFeeSlab,
+      coApplicantMaxEMI: $coApplicantMaxEMI,
+      coApplicantMinAge: $coApplicantMinAge,
+      coApplicantMinSalary: $coApplicantMinSalary
+    }){
+      _id
+    }
+  }
+`;

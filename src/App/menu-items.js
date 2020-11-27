@@ -33,6 +33,13 @@ const navigation = {
 		            type: 'item',
 		            url: '/admin/usermgmt',
 		            icon: 'feather icon-users',
+				},
+				{
+		            id: 'bank',
+		            title: 'Bank & Services',
+		            type: 'item',
+		            url: '/admin/bank',
+		            icon: 'feather icon-credit-card',
 		        }
 				
 		    ]

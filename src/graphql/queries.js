@@ -116,4 +116,41 @@ export const GET_ALL_APPLICATIONS_QUERY = `
   }
 `;
 
+export const GET_ALL_PRODUCTS_QUERY = `
+  query {
+    getAllProducts {
+		bankName
+		bankCode
+		fbBankCode
+		productName
+		productCode
+		fbProductCode
+		minAge
+		maxAge
+		minIncome
+		minLoanAmount
+		maxLoanAmount
+		minLoanRatio
+		maxLoanRatio
+		minLoanTenure
+		maxLoanTenure
+		minInterestRateMen
+		minInterestRateWomen
+		minProcessingFee
+		minPreclosureCharge
+		maxPreclosureCharge
+		fbProcessingFee
+		minProcessingFeeSlab
+		maxProcessingFeeSlab
+		coApplicantMaxEMI
+		coApplicantMinAge
+		coApplicantMinSalary
+		documents
+		eligibilty
+		details
+		fbOffers
+	}
+  }
+`;
+
 
