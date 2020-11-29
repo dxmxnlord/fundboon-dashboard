@@ -8,6 +8,18 @@ export const LOGIN_MUTATION = `
   }
 `;
 
+export const DELETE_MUTATION = `
+  mutation($ids: [UserID]){
+    deleteUser(input: $ids)
+  }
+`;
+
+export const DEACTIVATE_MUTATION = `
+  mutation($ids: [UserID]){
+    deactivateUser(input: $ids)
+  }
+`;
+
 export const LOGOUT_MUTATION = `
   mutation {
     logout
@@ -64,7 +76,7 @@ export const UPDATE_ADMIN_USER_PROFILE = `
       email
     }
   }
-`
+`;
 
 export const UPDATE_APPLICATION_DATA = `
   mutation(
@@ -194,7 +206,6 @@ export const UPDATE_APPLICATION_DATA = `
   }
 `;
 
-
 export const UPDATE_PRODUCT_DATA = `
   mutation(
     $bankName: String,
@@ -254,5 +265,69 @@ export const UPDATE_PRODUCT_DATA = `
     }){
       _id
     }
+  }
+`;
+
+export const ADD_USER_DATA = `
+  mutation(
+    $email: String,
+    $password: String,
+    $role: String,
+    $firstName: String,
+    $lastName: String,
+    $gender: String,
+    $dob: String,
+    $mobileNumber: String,
+    $houseNumber: String,
+    $locality: String,
+    $city: String,
+    $state: String,
+    $pinCode: String,
+    $accomodationType: String,
+    $residenceYear: String,
+    $addressCheck: String,
+    $qualification: String,
+    $employmentType: String,
+    $income: String,
+    $company: String,
+    $pan: String
+    $aadhaar: String
+    $nationality: String
+  ) {
+    addUser(input:{
+      email: $email,
+      role: $role,
+      password: $password,
+      personalDetails: {
+        firstName: $firstName,
+        lastName: $lastName,
+        gender: $gender,
+        dob: $dob,
+        mobileNumber: $mobileNumber,
+      },
+      addressDetails: {
+        houseNumber: $houseNumber,
+        locality: $locality,
+        city: $city,
+        state: $state,
+        pinCode: $pinCode,
+        accomodationType: $accomodationType,
+        residenceYear: $residenceYear,
+        addressCheck: $addressCheck,
+      },
+      educationDetails: {
+        qualification: $qualification,
+      },
+      employeeDetails: {
+        employmentType: $employmentType,
+        income: $income,
+        company: $company,
+      },
+      kycDetails: {
+        pan: $pan,
+        aadhaar: $aadhaar,
+        nationality: $nationality,
+      },
+    })
   }
 `;
