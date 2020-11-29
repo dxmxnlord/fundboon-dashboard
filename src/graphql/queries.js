@@ -4,7 +4,6 @@ export const USER_EXISTS_QUERY = `
   }
 `;
 
-
 export const GET_ADMIN_USER_QUERY = `
 	query{
 	  getAdmin{
@@ -36,7 +35,7 @@ export const GET_ADMIN_USER_QUERY = `
     	}
 	  }
 	}
-`
+`;
 
 export const GET_ALL_APPLICATIONS_QUERY = `
   query {
@@ -153,4 +152,138 @@ export const GET_ALL_PRODUCTS_QUERY = `
   }
 `;
 
+export const getAllUsersForAdmin = `
+query{
+	getUsersAdmin{
+	  createdDate,
+	  updatedDate,
+	  lastLoginDate,
+	  id,
+	  role,
+	  personalDetails{
+		firstName
+		lastName
+	  },
+	  adminViewID,
+	  deactivate
+	}
+  }
+`;
 
+export const GET_USER_QUERY = `
+	query($id:ID!){
+	getUser(input: $id){
+		email
+		role
+    	personalDetails {
+    		firstName
+			lastName
+			name
+			gender
+			dob
+			mobileNumber
+    	},
+    	addressDetails{
+    		houseNumber
+			locality
+			city
+			state
+			pinCode
+			accomodationType
+			residenceYear
+			addressCheck
+    	},
+    	educationDetails{
+    		qualification
+    	},
+    	employmentDetails{
+    		employmentType
+			income
+			company
+		},
+		kycDetails{
+			pan
+			aadhaar
+			nationality
+		}
+	  }
+	}
+`;
+
+export const GET_USER_APPLICATION_QUERY = `
+  query($id: ID!) {
+	getUserApplications(input: $id) {
+      applicationNumber
+      applicantId
+      policyId
+	  type
+	  bankName
+	  loanDetails{
+		loanAmount
+		loanCity
+		assetCity
+		assetWorth
+		loanTenure
+		loanPurpose
+		assetState
+		assetType
+		homeLoanCity
+	  },
+	  bankDetails{
+		coApplicant
+		coApplicantIncome
+		coApplicantEMI
+		coApplicantRelation
+		exiloan
+		exiLoanBank
+		exiEMI
+		chqbnc
+		exiLoanType
+		transfer
+	  },
+	  personalDetails{
+		firstName
+		lastName
+		gender
+		dob
+		mob
+		maritalStatus
+		qualification
+		pan
+		aadhaar
+		nation
+		primaryEmail
+		secondaryEmail
+	  },
+	  addressDetails{
+		permanentAddress
+		permanentAddressLandmark
+		permanentAddressType
+		permanentAddressPincode
+		permanentAddressPincodeCity
+		permanentAddressPincodeState
+		permanentAddressAccomodation
+		currentAddress
+		currentAddressLandmark
+		currentAddressType
+		currentAddressPincode
+		currentAddressPincodeCity
+		currentAddressPincodeState
+		currentAddressAccomodation
+	  },
+	  employmentDetails{
+		emp
+		income
+		company
+		turnover
+		officeAddress
+		officeAddressLandmark
+		officeAddressPincode
+		industryType
+	  }
+      appliedAt
+      applicationComplete
+      reviewStatus
+    }
+  }
+`;
