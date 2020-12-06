@@ -268,6 +268,66 @@ export const UPDATE_PRODUCT_DATA = `
   }
 `;
 
+export const UPDATE_LEADS_DATA = `
+  mutation(
+    $comment: String,
+    $leadId: String,
+    $refererId: String,
+    $dateOfApply: String,
+    $updateDate: String,
+    $name: String,
+    $email: String,
+    $amount: String,
+    $loanType: String,
+    $empType: String,
+    $martial: String,
+    $education: String,
+    $gender: String,
+    $date: String,
+    $income: String,
+    $salaryType: String,
+    $companyName: String,
+    $address: String,
+    $city: String,
+    $state: String,
+    $pinCode: String,
+    $pan: String,
+    $aadhaar: String,
+    $status: String,
+    $mobile: String
+		) {
+    updateLeadsData(input:{
+      comment: $comment,
+      leadId: $leadId,
+      refererId: $refererId,
+      dateOfApply: $dateOfApply,
+      updateDate: $updateDate,
+      name: $name,
+      email: $email,
+      amount: $amount,
+      loanType: $loanType,
+      empType: $empType,
+      martial: $martial,
+      education: $education,
+      gender: $gender,
+      date: $date,
+      income: $income,
+      salaryType: $salaryType,
+      companyName: $companyName,
+      address: $address,
+      city: $city,
+      state: $state,
+      pinCode: $pinCode,
+      pan: $pan,
+      aadhaar: $aadhaar,
+      status: $status,
+      mobile: $mobile
+    }){
+      _id
+    }
+  }
+`;
+
 export const ADD_USER_DATA = `
   mutation(
     $email: String,

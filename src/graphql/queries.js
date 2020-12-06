@@ -152,6 +152,38 @@ export const GET_ALL_PRODUCTS_QUERY = `
   }
 `;
 
+export const GET_ALL_LEADS_QUERY = `
+  query {
+    getAllLeads {
+		comment
+		leadId
+		refererId
+		dateOfApply
+		updateDate
+		name
+		email
+		amount
+		loanType
+		empType
+		martial
+		education
+		gender
+		date
+		income
+		salaryType
+		companyName
+		address
+		city
+		state
+		pinCode
+		pan
+		aadhaar
+		status
+		mobile
+	}
+  }
+`;
+
 export const getAllUsersForAdmin = `
 query{
 	getUsersAdmin{

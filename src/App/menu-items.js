@@ -40,6 +40,13 @@ const navigation = {
 		            type: 'item',
 		            url: '/admin/bank',
 		            icon: 'feather icon-credit-card',
+				},
+				{
+		            id: 'lead',
+		            title: 'Lead Management',
+		            type: 'item',
+		            url: '/admin/lead',
+		            icon: 'feather icon-check-square',
 		        }
 				
 		    ]

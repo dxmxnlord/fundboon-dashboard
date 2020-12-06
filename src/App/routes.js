@@ -5,6 +5,7 @@ import Profile from "./components/Profile";
 import Application from "./components/Application";
 import UserManagement from "./components/UserManagement";
 import Bank from "./components/Bank";
+import BankLeads from "./components/LeadManagement";
 
 window.jQuery = $;
 window.$ = $;
@@ -40,6 +41,12 @@ const adminRoutes = [
     exact: true,
     name: "Banks & Services",
     component: Bank,
+  },
+  {
+    path: "/admin/lead",
+    exact: true,
+    name: "Lead Management",
+    component: BankLeads,
   },
 ];
 
