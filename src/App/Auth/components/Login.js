@@ -96,8 +96,6 @@ const Login = ({ history, location}) => {
 
   return (
     <div id="Routine" className="mb-5 card shadow-lg p-3 mb-5 bg-white box" >
-      <br/>
-      <a href="/" style={{textDecoration: 'none'}}><h6><i className="fa fa-arrow-left" /> Back</h6></a>
       <center>
 
       <h1>Login</h1>
