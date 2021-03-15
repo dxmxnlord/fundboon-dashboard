@@ -104,7 +104,14 @@ const ProductDetailsAdd = props => {
     else if(event.target.value==="Indiabulls Home Loans") { setBankCode("IBHL"); setFbBankCode("BNK117"); }
     else if(event.target.value==="Vistaar Finance") { setBankCode("VISF"); setFbBankCode("BNK118"); }
     else if(event.target.value==="Ratnakar Bank Ltd") { setBankCode("RNBL"); setFbBankCode("BNK119"); }
-    else { setBankCode("EDWF"); setFbBankCode("BNK120	"); }
+    else if(event.target.value==="Edelweiss Finance") { setBankCode("EDWF"); setFbBankCode("BNK120"); }
+    else if(event.target.value==="Axis Bank Ltd") { setBankCode("AXIS"); setFbBankCode("BNK121"); }
+    else if(event.target.value==="Sundaram BNP Paribas") { setBankCode("SUBP"); setFbBankCode("BNK122"); }
+    else if(event.target.value==="Ujjivan Small Finance Bank") { setBankCode("UJSF"); setFbBankCode("BNK123"); }
+    else if(event.target.value==="FEDbank") { setBankCode("FEDF"); setFbBankCode("BNK124"); }
+    else if(event.target.value==="Indusind Bank") { setBankCode("INDB"); setFbBankCode("BNK125"); }
+    else if(event.target.value==="Fullerton India") { setBankCode("FULL"); setFbBankCode("BNK126"); }
+    else { setBankCode("ADBF"); setFbBankCode("BNK127"); }
   };
 
   const handleProductName = (event) => {
@@ -168,6 +175,13 @@ const ProductDetailsAdd = props => {
             <option value="Shinhan Bank">Shinhan Bank</option>
             <option value="DCB Bank">DCB Bank</option>
             <option value="Federal Bank">Federal Bank</option>
+            <option value="Axis Bank Ltd">Axis Bank Ltd</option>
+            <option value="Sundaram BNP Paribas">Sundaram BNP Paribas</option>
+            <option value="Ujjivan Small Finance Bank">Ujjivan Small Finance Bank</option>
+            <option value="FEDbank">FEDbank</option>
+            <option value="Indusind Bank">Indusind Bank</option>
+            <option value="Fullerton India">Fullerton India</option>
+            <option value="Aditya Birla Finance">Aditya Birla Finance</option>
           </Form.Control>
         </Form.Group>
 
@@ -224,18 +238,18 @@ const ProductDetailsAdd = props => {
         </Form.Group>
 
         <Form.Group controlId="formBasicEmail">
-          <Form.Label>Max Loan Ratio</Form.Label>
+          <Form.Label>Max Loan Tenure</Form.Label>
           <Form.Control type="text" placeholder="Enter Maximum Loan Tenure" value={maxLoanTenure} disabled={disabled} onChange={e => setMaxLoanTenure(parseFloat(e.target.value))} />
         </Form.Group>
 
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Min Interest Rate Men</Form.Label>
-          <Form.Control type="text" placeholder="Enter Minimum Interest Rate for Men" value={minInterestRateMen} disabled={disabled} onChange={e => setMinInterestRateMen(parseFloat(e.target.value))} />
+          <Form.Control type="text" placeholder="Enter Minimum Interest Rate for Men" value={minInterestRateMen} disabled={disabled} onChange={e => setMinInterestRateMen(e.target.value)} />
         </Form.Group>
 
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Min Interest Rate Women</Form.Label>
-          <Form.Control type="text" placeholder="Enter Minimum Interest Rate for Women" value={minInterestRateWomen} disabled={disabled} onChange={e => setMinInterestRateWomen(parseFloat(e.target.value))} />
+          <Form.Control type="text" placeholder="Enter Minimum Interest Rate for Women" value={minInterestRateWomen} disabled={disabled} onChange={e => setMinInterestRateWomen(e.target.value)} />
         </Form.Group>
 
         <Form.Group controlId="formBasicEmail">

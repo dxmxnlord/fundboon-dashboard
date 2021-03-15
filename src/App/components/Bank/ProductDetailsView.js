@@ -7,6 +7,7 @@ import { GET_ALL_PRODUCTS_QUERY } from '../../../graphql/queries';
 const ProductDetails = props => {
   const client = useClient();
   const [disabled, setDisabled] = useState(true);
+  const [updated, setUpdated] = useState(false);
 
   const [bankName, setBankName] = useState('');
   const [bankCode, setBankCode] = useState('');
@@ -46,7 +47,7 @@ const ProductDetails = props => {
     if(props.id==undefined){
       props = {id: 0}
     }
-    if(disabled)
+    if(disabled && !updated)
     {
       client.request(GET_ALL_PRODUCTS_QUERY).then(product => {
         if (product === null) return;
@@ -82,7 +83,7 @@ const ProductDetails = props => {
   });
 
   
-  const handleSubmit = () => {
+  const handleSubmit = async e => {
     try {
       const variables = {
         bankName,
@@ -114,7 +115,9 @@ const ProductDetails = props => {
       }
         
 
-      client.request(UPDATE_PRODUCT_DATA,variables);
+      const response = await client.request(UPDATE_PRODUCT_DATA,variables);
+      console.log(response);
+      setUpdated(true);
     } catch (err) {
         console.log(err);
     }
@@ -184,12 +187,12 @@ const ProductDetails = props => {
 
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Min Interest Rate Men</Form.Label>
-          <Form.Control type="text" placeholder="Enter Minimum Interest Rate for Men" value={minInterestRateMen} disabled={disabled} onChange={e => setMinInterestRateMen(parseFloat(e.target.value))} />
+          <Form.Control type="text" placeholder="Enter Minimum Interest Rate for Men" value={minInterestRateMen} disabled={disabled} onChange={e => setMinInterestRateMen(String(e.target.value))} />
         </Form.Group>
 
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Min Interest Rate Women</Form.Label>
-          <Form.Control type="text" placeholder="Enter Minimum Interest Rate for Women" value={minInterestRateWomen} disabled={disabled} onChange={e => setMinInterestRateWomen(parseFloat(e.target.value))} />
+          <Form.Control type="text" placeholder="Enter Minimum Interest Rate for Women" value={minInterestRateWomen} disabled={disabled} onChange={e => setMinInterestRateWomen(String(e.target.value))} />
         </Form.Group>
 
         <Form.Group controlId="formBasicEmail">
