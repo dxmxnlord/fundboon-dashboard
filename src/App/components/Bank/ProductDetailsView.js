@@ -152,44 +152,43 @@ const ProductDetails = props => {
 
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Min Income</Form.Label>
-          <Form.Control type="text" placeholder="Enter Minimum Income" value={minIncome} disabled={disabled} onChange={e => setMinIncome(parseFloat(e.target.value))} />
+          <Form.Control type="text" placeholder="Enter Minimum Income" value={minIncome} disabled={disabled} onChange={e => setMinIncome(String(e.target.value))} />
         </Form.Group>
 
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Min Loan Amount</Form.Label>
-          <Form.Control type="text" placeholder="Enter Minimum Loan Amount" value={minLoanAmount} disabled={disabled} onChange={e => setMinLoanAmount(parseFloat(e.target.value))} />
+          <Form.Control type="text" placeholder="Enter Minimum Loan Amount" value={minLoanAmount} disabled={disabled} onChange={e => setMinLoanAmount(String(e.target.value))} />
         </Form.Group>
 
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Max Loan Amount</Form.Label>
-          <Form.Control type="text" placeholder="Enter Maximum Loan Amount" value={maxLoanAmount} disabled={disabled} onChange={e => setMaxLoanAmount(parseFloat(e.target.value))} />
+          <Form.Control type="text" placeholder="Enter Maximum Loan Amount" value={maxLoanAmount} disabled={disabled} onChange={e => setMaxLoanAmount(String(e.target.value))} />
         </Form.Group>
 
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Min Loan Ratio</Form.Label>
-          <Form.Control type="text" placeholder="Enter Minimum Loan Ratio" value={minLoanRatio} disabled={disabled} onChange={e => setMinLoanRatio(parseFloat(e.target.value))} />
+          <Form.Control type="text" placeholder="Enter Minimum Loan Ratio" value={minLoanRatio} disabled={disabled} onChange={e => setMinLoanRatio(String(e.target.value))} />
         </Form.Group>
 
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Max Loan Ratio</Form.Label>
-          <Form.Control type="text" placeholder="Enter Maximum Loan Ratio" value={maxLoanRatio} disabled={disabled} onChange={e => setMaxLoanRatio(parseFloat(e.target.value))} />
+          <Form.Control type="text" placeholder="Enter Maximum Loan Ratio" value={maxLoanRatio} disabled={disabled} onChange={e => setMaxLoanRatio(String(e.target.value))} />
         </Form.Group>
 
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Min Loan Tenure</Form.Label>
-          <Form.Control type="text" placeholder="Enter Minimum Loan Tenure" value={minLoanTenure} disabled={disabled} onChange={e => setMinLoanTenure(parseFloat(e.target.value))} />
+          <Form.Control type="text" placeholder="Enter Minimum Loan Tenure" value={minLoanTenure} disabled={disabled} onChange={e => setMinLoanTenure(String(e.target.value))} />
         </Form.Group>
 
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Max Loan Ratio</Form.Label>
-          <Form.Control type="text" placeholder="Enter Maximum Loan Tenure" value={maxLoanTenure} disabled={disabled} onChange={e => setMaxLoanTenure(parseFloat(e.target.value))} />
+          <Form.Control type="text" placeholder="Enter Maximum Loan Tenure" value={maxLoanTenure} disabled={disabled} onChange={e => setMaxLoanTenure(String(e.target.value))} />
         </Form.Group>
 
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Min Interest Rate Men</Form.Label>
           <Form.Control type="text" placeholder="Enter Minimum Interest Rate for Men" value={minInterestRateMen} disabled={disabled} onChange={e => setMinInterestRateMen(String(e.target.value))} />
         </Form.Group>
-
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Min Interest Rate Women</Form.Label>
           <Form.Control type="text" placeholder="Enter Minimum Interest Rate for Women" value={minInterestRateWomen} disabled={disabled} onChange={e => setMinInterestRateWomen(String(e.target.value))} />
@@ -197,47 +196,47 @@ const ProductDetails = props => {
 
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Min Processing Fee</Form.Label>
-          <Form.Control type="text" placeholder="Enter Minimum Processing Fee" value={minProcessingFee} disabled={disabled} onChange={e => setMinProcessingFee(parseFloat(e.target.value))} />
+          <Form.Control type="text" placeholder="Enter Minimum Processing Fee" value={minProcessingFee} disabled={disabled} onChange={e => setMinProcessingFee(String(e.target.value))} />
         </Form.Group>
 
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Min Preclosure Charge</Form.Label>
-          <Form.Control type="text" placeholder="Enter Minimum Preclosure Charge" value={minPreclosureCharge} disabled={disabled} onChange={e => setMinPreclosureCharge(parseFloat(e.target.value))} />
+          <Form.Control type="text" placeholder="Enter Minimum Preclosure Charge" value={minPreclosureCharge} disabled={disabled} onChange={e => setMinPreclosureCharge(String(e.target.value))} />
         </Form.Group>
 
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Max Preclosure Charge</Form.Label>
-          <Form.Control type="text" placeholder="Enter Maximum Preclosure Charge" value={maxPreclosureCharge} disabled={disabled} onChange={e => setMaxPreclosureCharge(parseFloat(e.target.value))} />
+          <Form.Control type="text" placeholder="Enter Maximum Preclosure Charge" value={maxPreclosureCharge} disabled={disabled} onChange={e => setMaxPreclosureCharge(String(e.target.value))} />
         </Form.Group>
 
         <Form.Group controlId="formBasicEmail">
           <Form.Label>FB Processing Fee</Form.Label>
-          <Form.Control type="text" placeholder="Enter Fundboon Processing Fee" value={fbProcessingFee} disabled={disabled} onChange={e => setFbProcessingFee(parseFloat(e.target.value))} />
+          <Form.Control type="text" placeholder="Enter Fundboon Processing Fee" value={fbProcessingFee} disabled={disabled} onChange={e => setFbProcessingFee(String(e.target.value))} />
         </Form.Group>
 
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Min Processing Fee Slab</Form.Label>
-          <Form.Control type="text" placeholder="Enter Minimum Processing Fee Slab" value={minProcessingFeeSlab} disabled={disabled} onChange={e => setMinProcessingFeeSlab(parseFloat(e.target.value))} />
+          <Form.Control type="text" placeholder="Enter Minimum Processing Fee Slab" value={minProcessingFeeSlab} disabled={disabled} onChange={e => setMinProcessingFeeSlab(String(e.target.value))} />
         </Form.Group>
 
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Max Processing Fee Slab</Form.Label>
-          <Form.Control type="text" placeholder="Enter Maximum Processing Fee Slab" value={maxProcessingFeeSlab} disabled={disabled} onChange={e => setMaxProcessingFeeSlab(parseFloat(e.target.value))} />
+          <Form.Control type="text" placeholder="Enter Maximum Processing Fee Slab" value={maxProcessingFeeSlab} disabled={disabled} onChange={e => setMaxProcessingFeeSlab(String(e.target.value))} />
         </Form.Group>
 
         <Form.Group controlId="formBasicEmail">
           <Form.Label>CoApplicant Max EMI</Form.Label>
-          <Form.Control type="text" placeholder="Enter CoApplicant Maximum EMI" value={coApplicantMaxEMI} disabled={disabled} onChange={e => setCoApplicantMaxEMI(parseFloat(e.target.value))} />
+          <Form.Control type="text" placeholder="Enter CoApplicant Maximum EMI" value={coApplicantMaxEMI} disabled={disabled} onChange={e => setCoApplicantMaxEMI(String(e.target.value))} />
         </Form.Group>
 
         <Form.Group controlId="formBasicEmail">
           <Form.Label>CoApplicant Min Age</Form.Label>
-          <Form.Control type="text" placeholder="Enter CoApplicant Minimum Age" value={coApplicantMinAge} disabled={disabled} onChange={e => setCoApplicantMinAge(parseFloat(e.target.value))} />
+          <Form.Control type="text" placeholder="Enter CoApplicant Minimum Age" value={coApplicantMinAge} disabled={disabled} onChange={e => setCoApplicantMinAge(String(e.target.value))} />
         </Form.Group>
 
         <Form.Group controlId="formBasicEmail">
           <Form.Label>CoApplicant Min Salary</Form.Label>
-          <Form.Control type="text" placeholder="Enter CoApplicant Minimum Salary" value={coApplicantMinSalary} disabled={disabled} onChange={e => setCoApplicantMinSalary(e.target.value)} />
+          <Form.Control type="text" placeholder="Enter CoApplicant Minimum Salary" value={coApplicantMinSalary} disabled={disabled} onChange={e => setCoApplicantMinSalary(String(e.target.value))} />
         </Form.Group>
       </Form>
     </>
