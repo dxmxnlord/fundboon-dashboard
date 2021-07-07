@@ -26,6 +26,27 @@ const navigation = {
 		            type: 'item',
 		            url: '/admin/application',
 		            icon: 'feather icon-camera',
+				},
+				{
+		            id: 'usermgmt',
+		            title: 'User Management',
+		            type: 'item',
+		            url: '/admin/usermgmt',
+		            icon: 'feather icon-users',
+				},
+				{
+		            id: 'bank',
+		            title: 'Bank & Services',
+		            type: 'item',
+		            url: '/admin/bank',
+		            icon: 'feather icon-credit-card',
+				},
+				{
+		            id: 'lead',
+		            title: 'Lead Management',
+		            type: 'item',
+		            url: '/admin/lead',
+		            icon: 'feather icon-check-square',
 		        }
 				
 		    ]

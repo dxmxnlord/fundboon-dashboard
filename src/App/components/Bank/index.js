@@ -7,48 +7,52 @@ import Swal from 'sweetalert2';
 import FuzzySearch from 'fuzzy-search';
 import { useClient } from '../../../client';
 import { useCookies } from 'react-cookie';
-import { GET_ALL_APPLICATIONS_QUERY } from '../../../graphql/queries';
-import { DELETE_APPLICATION_MUTATION } from "../../../graphql/mutation";
-import ViewApplication from "./ViewApplication";
+import { GET_ALL_PRODUCTS_QUERY } from '../../../graphql/queries';
+import { DELETE_PRODUCT_MUTATION } from "../../../graphql/mutation";
+import ViewBank from "./ViewBank";
+import AddBank from "./AddBank";
 
 import Aux from "../../../Admin/hoc/_Aux";
 import { ContactSupportOutlined } from '@material-ui/icons';
-  
-const selectApplications = () => {
-    const checkboxes = document.querySelectorAll(".checkboxApplications");
+import { get } from 'jquery';
+
+const selectProducts = () => {
+    const checkboxes = document.querySelectorAll(".checkboxProducts");
 
     const response = [];
     checkboxes.forEach((ele) => {
-        const applicationNumber = ele.getAttribute("data-id");
+        const fbProductCode = ele.getAttribute("data-id");
         if (ele.checked) {
-            response.push(applicationNumber);
+            response.push(fbProductCode);
         }
     });
     return response;
 };
 
-var applications = [];
+var products = [];
 
-const Application = () =>  {
+const Bank = () =>  {
     const client = useClient();
     const [cookies, removeCookie] = useCookies(['user']);
-    const [application, setApplication] = useState([]);
+    const [product, setProduct] = useState([]);
     const [isLoading, setLoading] = useState('loading');
     const [show, setShow] = useState(false);
     const [showView, setShowView] = useState(false);
-    const [applicationId, setApplicationId] = useState('');
+    const [productId, setProductId] = useState('');
+
 
     const [search, setSearch] = useState("");
-    const [applicationsSelected, setSelectedApplications] = useState([]);
+    const [productsSelected, setSelectedProducts] = useState([]);
     const [showDelete, setShowDelete] = useState(false);
+
 
     const handleCloseShow = () => {
         setShowView(false);
-        setApplicationId('');
+        setProductId('');
     }
     const handleShowView = (event, value) => {
         setShowView(true);
-        setApplicationId(value);
+        setProductId(value);
     }
 
     const handleCloseDelete = () => {
@@ -56,68 +60,64 @@ const Application = () =>  {
     };
 
     const handleShowDelete = () => {
-        setSelectedApplications(selectApplications());
+        setSelectedProducts(selectProducts());
         setShowDelete(true);
     };
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
     
     const doDelete = async () => {
-        const data = applicationsSelected.map((ele) => ({ applicationNumber: ele }));
+        const data = productsSelected.map((ele) => ({ fbProductCode: ele }));
         const variables = {
-            applicationNumbers: data,
+            productCodes: data,
         };
-        const response = await client.request(DELETE_APPLICATION_MUTATION, variables);
+        const response = await client.request(DELETE_PRODUCT_MUTATION, variables);
         console.log(response);
         setShowDelete(false);
-        getApplicationsRequest();
+        getProductsRequest();
     };
     
-      
-    
 
-    const getApplicationsRequest = async e => {
-        try {
-            const application = await client.request(GET_ALL_APPLICATIONS_QUERY);
-
-            setApplication(application.getAllApplicationsRequest);
-            console.log(application);
-            setLoading('');
-        } catch (err) {
-            console.log(err);
-            setLoading('');
-        }
+    const getProductsRequest = async e => {
+    try {
+        const getAllProducts = await client.request(GET_ALL_PRODUCTS_QUERY);
+        setProduct(getAllProducts.getAllProducts);
+        setLoading('');
+    } catch (err) {
+        console.log(err);
+        setLoading('');
+    }
     };
     const Get = () => {
-    if (isLoading == 'loading') getApplicationsRequest();
+    if (isLoading == 'loading') getProductsRequest();
     };
     const Details = () => {
+    const card = [];
 
     const searcher = new FuzzySearch(
-        application,
-        ["personalDetails.firstName", "personalDetails.lastName", "applicationNumber", "loanDetails.loanAmount", "bankName", "reviewStatus", "type"],
+        product,
+        ["fbBankCode", "bankName", "bankCode", "fbProductCode", "productName", "productCode"],
         {
-            caseSensitive: false,
+            caseSensitive: true,
         }
     );
 
     const result = searcher.search(search);
 
-    const card = [];
-    
     for (let i = 0; i < result.length; i++) {
-        var theDate = new Date(result[i].appliedAt/1);
-        var dateString = theDate.toGMTString();
-
         var data = {};
         data['id'] = i;
+        
 
-        applications.push(data);
+        products.push(data);
 
         card.push(
         <tr>
             <td>
             <input 
-            data-id={result[i].applicationNumber}
-            className="checkboxApplications"
+            data-id={result[i]._id}
+            className="checkboxProducts"
             type="checkbox" />
             </td>
             <td scope="row">
@@ -126,31 +126,7 @@ const Application = () =>  {
             </td>
             <td>
             {' '}
-            {dateString}
-            </td>
-            <td>
-            {' '}
-            {dateString}
-            </td>
-            <td>
-            {' '}
-            {result[i].applicationNumber}{' '}
-            </td>
-            <td>
-            {' '}
-            {result[i].type}
-            </td>
-            <td>
-            {' '}
-            {result[i].personalDetails.firstName}{' '}{result[i].personalDetails.lastName}{' '}
-            </td>
-            <td>
-            {' '}
-            {i+1000}
-            </td>
-            <td>
-            {' '}
-            {result[i].loanDetails.loanAmount}{' '}
+            {result[i].fbBankCode}{' '}
             </td>
             <td>
             {' '}
@@ -158,11 +134,19 @@ const Application = () =>  {
             </td>
             <td>
             {' '}
-            {result[i].reviewStatus}
+            {result[i].bankCode}{' '}
             </td>
             <td>
             {' '}
-            FBrep {i}
+            {result[i].fbProductCode}{' '}
+            </td>
+            <td>
+            {' '}
+            {result[i].productName}{' '}
+            </td>
+            <td>
+            {' '}
+            {result[i].productCode}{' '}
             </td>
             <td>
             {' '}
@@ -180,32 +164,39 @@ const Application = () =>  {
                         <Card>
                             <Card.Header>
                             
-                                <Card.Title as="h5">Application Management</Card.Title>
-                                <span className="d-block m-t-5">Easily manage applications here.</span>
+                                <Card.Title as="h5">Banks & Services Management</Card.Title>
+                                <span className="d-block m-t-5">Easily manage banks & services here.</span>
                                 <ReactHTMLTableToExcel
                                 className="float-right btn btn-success"
                                 table="table-to-xls"
-                                filename="fundboon-applications"
-                                sheet="fundboon-applications"
+                                filename="fundboon-products"
+                                sheet="fundboon-products"
                                 buttonText="Download as Excel"/>
+                                <Button
+                                    className="float-right"
+                                    variant="secondary"
+                                    onClick={handleShow}
+                                >
+                                    New Product
+                                </Button>
                                 <Col md={4} className="float-right">
                                     <Form.Control 
                                     type="text" 
                                     placeholder="Search" 
-                                    className="mb-3"
                                     value={search}
-                                    onChange={(event) => setSearch(event.target.value)} />
+                                    onChange={(event) => setSearch(event.target.value)}
+                                    className="mb-3" />
                                 </Col>
                             </Card.Header>
                             <Card.Body>
 
                             <Modal show={showView} onHide={handleCloseShow} size="lg">
                                 <Modal.Header closeButton>
-                                <Modal.Title>View Application</Modal.Title>
+                                <Modal.Title>View Bank</Modal.Title>
                                 </Modal.Header>
                                 
                                 <Modal.Body>
-                                <ViewApplication {...applications[applicationId]} />
+                                <ViewBank {...products[productId]} />
                                 </Modal.Body>
                                 <Modal.Footer>
                                 <Button variant="secondary" onClick={handleCloseShow}>
@@ -219,7 +210,7 @@ const Application = () =>  {
                                 <Modal.Title>Confirm Deletion</Modal.Title>
                                 </Modal.Header>
                                 <Modal.Body>
-                                Are you sure you want to delete the selected applications ?
+                                Are you sure you want to delete the selected products ?
                                 </Modal.Body>
                                 <Modal.Footer>
                                 <Button variant="secondary" onClick={handleCloseDelete}>
@@ -231,21 +222,31 @@ const Application = () =>  {
                                 </Modal.Footer>
                             </Modal>
 
+                            <Modal show={show} onHide={handleClose} size="lg">
+                                <Modal.Header closeButton>
+                                <Modal.Title>Add Product</Modal.Title>
+                                </Modal.Header>
+                                <Modal.Body>
+                                <AddBank />
+                                </Modal.Body>
+                                <Modal.Footer>
+                                <Button variant="secondary" onClick={handleClose}>
+                                    Close
+                                </Button>
+                                </Modal.Footer>
+                            </Modal>
+
                                 <Table responsive hover id="table-to-xls">
                                     <thead>
                                     <tr>
                                         <th>Select</th>
                                         <th>Sr.No.</th>
-                                        <th>Applied Date</th>
-                                        <th>Updated Date</th>
-                                        <th>Application Number</th>
-                                        <th>Product Type</th>
-                                        <th>Customer Name</th>
-                                        <th>Associate ID</th>
-                                        <th>Loan Amount</th>
+                                        <th>Bank ID</th>
                                         <th>Bank Name</th>
-                                        <th>Status</th>
-                                        <th>FB Rep</th>
+                                        <th>Bank Code</th>
+                                        <th>Product ID</th>
+                                        <th>Product Name</th>
+                                        <th>Product Code</th>
                                         <th>Actions</th>
                                     </tr>
                                     </thead>
@@ -264,4 +265,4 @@ const Application = () =>  {
         );
     }
 
-export default Application;
+export default Bank;
